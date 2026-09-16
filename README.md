@@ -9,6 +9,12 @@
 
 Statamic is the flat-first, Laravel + Git powered CMS designed for building beautiful, easy to manage websites.
 
+## Programs CMS and API
+
+Programs are managed in the Statamic Control Panel at `/cp`. The **Programs** collection has fields for a title, date and time, Past Program status, short summary, image, and application URL.
+
+The public API is available at `GET /api/programs` and returns published programs ordered by date and time. Filter it with `?is_past=true` for past programs or `?is_past=false` for current programs. Run `composer setup` after a fresh clone to import the file-based CMS configuration and sample programs into the Eloquent driver database.
+
 > [!NOTE]
 > This repository contains the code for a fresh Statamic project that is installed via the Statamic CLI tool.
 >
