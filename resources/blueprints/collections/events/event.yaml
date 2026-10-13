@@ -1,0 +1,48 @@
+title: Event
+tabs:
+  main:
+    display: Event
+    sections:
+      - display: Details
+        fields:
+          - handle: title
+            field:
+              type: text
+              display: Title
+              validate: required
+          - handle: date_time
+            field:
+              type: date
+              display: Date & Time
+              time_enabled: true
+              listable: true
+              validate: required
+          - handle: is_past
+            field:
+              type: toggle
+              display: Past Event?
+              instructions: Enable to display this event in the Past Events section.
+              default: false
+              listable: true
+              validate: required|boolean
+          - handle: summary
+            field:
+              type: textarea
+              display: Summary
+              instructions: The short line shown below the event title.
+              character_limit: 180
+              validate: required|max:180
+          - handle: image
+            field:
+              type: assets
+              display: Event Image
+              container: assets
+              max_files: 1
+              mode: list
+              validate: required
+          - handle: apply_url
+            field:
+              type: link
+              display: Apply URL
+              instructions: The destination for the Apply Now button.
+              validate: required|url

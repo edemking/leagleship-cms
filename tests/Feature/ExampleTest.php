@@ -27,4 +27,22 @@ class ExampleTest extends TestCase
             ->assertOk()
             ->assertJson(['data' => []]);
     }
+
+    /**
+     * The events endpoint is publicly available.
+     */
+    public function test_the_events_api_returns_a_successful_response(): void
+    {
+        CollectionModel::query()->create([
+            'handle' => 'events',
+            'title' => 'Events',
+            'settings' => ['dated' => false],
+        ]);
+
+        $response = $this->getJson('/api/events');
+
+        $response
+            ->assertOk()
+            ->assertJson(['data' => []]);
+    }
 }

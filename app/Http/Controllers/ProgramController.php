@@ -17,7 +17,7 @@ class ProgramController extends Controller
         ]);
 
         $programs = Entry::query()
-            ->where('collection', 'programs')
+            ->where('collection', $this->collection())
             ->whereStatus('published')
             ->when(
                 $request->has('is_past'),
@@ -39,6 +39,11 @@ class ProgramController extends Controller
         return response()->json([
             'data' => $programs,
         ]);
+    }
+
+    protected function collection(): string
+    {
+        return 'programs';
     }
 
     private function imageUrl(mixed $image): ?string
